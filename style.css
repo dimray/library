@@ -72,12 +72,13 @@ label[for="read-or-not"] {
 
 
 .btn {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: lightgrey;
   border-radius: 5px;
   padding: 10px;
   border: none;
   font-size: x-large;
   font-weight: 900;
+  width: 100%;
 }
 
 .btn:hover {

@@ -17,13 +17,13 @@ const displayBooks = function (read) {
   lineBreak2.style.padding = "10px";
 
   removeBook.classList.add("btn");
-  removeBook.textContent = "- Remove Book";
+  removeBook.textContent = "remove";
   bookRead.classList.add("btn");
   read === "read" ? bookRead.classList.add("beenRead") : bookRead.classList.add("notRead");
   bookCard.classList.add("card");
   bookTitle.textContent += book.title;
-  bookAuthor.textContent += book.author;
-  bookPages.textContent += book.pages;
+  bookAuthor.textContent += "by " + book.author;
+  bookPages.textContent += book.pages + " pages";
   bookRead.textContent += book.read;
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
@@ -89,7 +89,7 @@ container.addEventListener("click", function (e) {
     e.target.classList.remove("beenRead");
     e.target.classList.add("notRead");
     e.target.textContent = "not read";
-  } else if (e.target.textContent === "- Remove Book") {
+  } else if (e.target.textContent === "remove") {
     let card = e.target.closest(".card");
     card.remove();
   }
