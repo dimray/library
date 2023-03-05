@@ -55,29 +55,40 @@ submitForm.addEventListener("click", function () {
   const title = document.querySelector("#title");
   const author = document.querySelector("#author");
   const pages = document.querySelector("#pages");
-  let read = document.querySelector("#read-or-not");
-  read.checked ? read = "read" : read = "not read";
 
-  let book = new Book(title.value, author.value, pages.value, read);
-  book.addBookToLibrary();
-  book = "";
-  displayBooks(read);
+  if (!title.value || !author.value || !pages.value) {
+    alert("please complete the form")
+  } else {
+    let read = document.querySelector("#read-or-not");
+    read.checked ? read = "read" : read = "not read";
 
-  let fade = document.querySelector(".faded-element");
-  fade.classList.remove("faded");
-  let form = document.querySelector(".add-book-form");
-  form.classList.remove("foreground");
-  form.style.opacity = "0";
+    let book = new Book(title.value, author.value, pages.value, read);
+    book.addBookToLibrary();
+    book = "";
+    displayBooks(read);
+
+    let fade = document.querySelector(".faded-element");
+    fade.classList.remove("faded");
+    let form = document.querySelector(".add-book-form");
+    form.classList.remove("foreground");
+    form.style.opacity = "0";
+  }
+
+
+
 
 });
 
 addButton.addEventListener("click", function () {
+
   let fade = document.querySelector(".faded-element");
   fade.classList.add("faded");
   let form = document.querySelector(".add-book-form");
   form.classList.add("foreground");
   form.style.opacity = "1";
+
 });
+
 
 container.addEventListener("click", function (e) {
 
